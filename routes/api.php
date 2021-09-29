@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\EnqueteController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// lista
+Route::get('enquetes', [EnqueteController::class, 'index']);
+
+// salva
+Route::post('enquete', [EnqueteController::class, 'store']);
+
+// atualiza
+Route::put('enquete', [EnqueteController::class, 'store']);
+
+// remove
+Route::delete('enquete/{id}', [EnqueteController::class, 'destroy']);
+
+// obter
+Route::get('enquete/{id}', [EnqueteController::class, 'show']);
